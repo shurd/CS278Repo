@@ -110,4 +110,10 @@ public class ExerciseApplicationTests {
 		video = videoService.getVideo(video.getId());
 		assertEquals(video.getLikes(), 1);
 	}
+	
+	@Test
+	public void likeVideoNotOnNull() {
+		Video video = videoService.likeVideo((long) 100);
+		assertEquals(video, null);
+	}
 }

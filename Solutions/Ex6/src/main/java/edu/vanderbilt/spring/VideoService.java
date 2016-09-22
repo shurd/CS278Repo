@@ -60,8 +60,10 @@ public class VideoService {
 	@RequestMapping(value="/like/video/{id}", method=RequestMethod.POST)
 	public Video likeVideo(@PathVariable("id") Long videoId){
 		Video video = videos_.findOne(videoId);
-		video.setLikes(video.getLikes()+1);
-		videos_.save(video);
+		if(video!=null){
+			video.setLikes(video.getLikes()+1);
+			videos_.save(video);
+		}
 		return videos_.findOne(videoId);
 	}
 	
