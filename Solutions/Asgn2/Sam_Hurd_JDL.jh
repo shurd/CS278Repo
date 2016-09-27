@@ -18,16 +18,16 @@ entity Dormitory {
 	dormName String required
 }
 
-relationship ManyToOne {
-	Student{preferredContactMethod(nameOfChoice)} to PreferredContact
+relationship OneToMany {
+	PreferredContact to Student{preferredContactMethod(nameOfChoice)}
 }
 
-relationship ManyToOne {
-	Student{school(schoolName)} to School
+relationship OneToMany {
+	School to Student{school(schoolName)}
 }
 
-relationship ManyToOne {
-	Student{dormitory(dormName)} to Dormitory
+relationship OneToMany {
+	Dormitory to Student{dormitory(dormName)}
 }
 
 dto * with mapstruct
