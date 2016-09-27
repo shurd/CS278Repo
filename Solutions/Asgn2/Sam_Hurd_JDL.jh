@@ -1,0 +1,35 @@
+
+entity Student {
+	fullName String required,
+    emailAddress String required,
+    phoneNumber String required,
+    graduationDate LocalDate
+}
+
+entity PreferredContact {
+	nameOfChoice String required
+}
+
+entity School {
+	schoolName String required
+}
+
+entity Dormitory {
+	dormName String required
+}
+
+relationship ManyToOne {
+	Student{preferredContactMethod(nameOfChoice)} to PreferredContact
+}
+
+relationship ManyToOne {
+	Student{school(schoolName)} to School
+}
+
+relationship ManyToOne {
+	Student{dormitory(dormName)} to Dormitory
+}
+
+dto * with mapstruct
+
+angularSuffix * with mySuffix
